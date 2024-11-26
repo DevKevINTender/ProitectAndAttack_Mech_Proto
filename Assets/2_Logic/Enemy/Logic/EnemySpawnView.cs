@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using UniRx;
 using UnityEditor.MPE;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class EnemySpawnViewService
     [Inject] private IViewFabric _viewFabric;
     [Inject] private IEventService _eventService;
     [Inject] private IViewServicePoolService _poolsViewService;
+    [Inject] private CurrentLevelDataManager _currentLevelDataManager;
     private IViewServicePool _enemyPoolViewService;
     private ReactiveProperty<float> _intervalProperty = new ReactiveProperty<float>(0.1f);
     private CompositeDisposable _disposables = new();
@@ -60,6 +62,7 @@ public class EnemySpawnViewService
             }
         }
         _currentSetID++;
+        _currentLevelDataManager.ChangeCurrentSetID(_currentSetID);
 
     }
 

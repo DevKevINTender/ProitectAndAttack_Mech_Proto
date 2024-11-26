@@ -5,6 +5,7 @@ public class SessionServiceInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<LevelArrayDataManager>().AsSingle();
+        Container.Bind<CurrentLevelDataManager>().AsSingle();
         Container.Bind<LevelService>().AsSingle();
         Container.Bind<ShootingService>().AsSingle();
         Container.Bind<UnitViewService>().AsSingle();
