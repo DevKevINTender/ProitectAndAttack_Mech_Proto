@@ -8,6 +8,7 @@ public class BulletView: MonoBehaviour
 {
     public DamageComponent DamageComponent;
     public MoveToDirectionComponent MoveComponent;
+    public WallDetectComponent WallDetectComponent;
     public void Init()
     {
 
@@ -43,12 +44,11 @@ public class BulletViewService : PoolingViewService
         if(_bulletView == null)
             _bulletView = _viewFabric.Init<BulletView>();
 
-      
-
         _bulletView.Activate(spawnPos);
         _bulletView.DamageComponent.Activate(1, filterType);
         _bulletView.DamageComponent.DamageAction = Deactivate;
         _bulletView.MoveComponent.Activate(targetTrn.position, 10f);
+        _bulletView.WallDetectComponent.WallDetectedAction = Deactivate;
     }
 
     public void Deactivate()

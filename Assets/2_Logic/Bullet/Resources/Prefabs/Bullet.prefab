@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5299983471258298348}
   - component: {fileID: 4562739358913092292}
   - component: {fileID: 4699372562002668607}
+  - component: {fileID: 6333842204352842060}
   - component: {fileID: 3766516835437710682}
   - component: {fileID: 2620294824966594448}
   - component: {fileID: 1705954460296674156}
@@ -104,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageComponent: {fileID: 4699372562002668607}
   MoveComponent: {fileID: 4562739358913092292}
+  WallDetectComponent: {fileID: 6333842204352842060}
 --- !u!114 &4562739358913092292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +128,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e4bccb4c7d6fac4d98d454847c2de08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6333842204352842060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732843758135753733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e37596dd21413d4ea8f9e08cc4231e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &3766516835437710682
