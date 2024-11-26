@@ -22,6 +22,7 @@ public class BulletView: MonoBehaviour
     {
         gameObject.SetActive(false);
         transform.SetParent(poolTrn);
+        transform.GetComponent<TrailRenderer>().Clear();
         transform.localPosition = Vector3.zero;
     }
     public void Final()
