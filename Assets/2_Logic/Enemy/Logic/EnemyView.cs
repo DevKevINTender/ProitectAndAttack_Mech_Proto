@@ -32,7 +32,7 @@ public class EnemyViewService: PoolingViewService
 
         _enemyView.Activate(spawnPos);
         _enemyView.MoveComponent.Activate(Vector2.zero, 1);
-        _enemyView.HpComponent.Activate(2);
+        _enemyView.HpComponent.Activate(8);
         _enemyView.HpComponent.DieAction = Deactivate;
         _enemyView.DamageComponent.Activate(1, typeof(UnitView));
         _enemyView.DamageComponent.DamageAction = Deactivate;
@@ -40,10 +40,10 @@ public class EnemyViewService: PoolingViewService
 
     public void Deactivate()
     {
+        _enemyView.Deactivate(poolTrn);
         _enemyView.MoveComponent.Deactivate();
         _enemyView.HpComponent.Deactivate();
         _enemyView.DamageComponent.Deactivate();
-        _enemyView.Deactivate(poolTrn);
         DeactivateToPool();
     }
 }

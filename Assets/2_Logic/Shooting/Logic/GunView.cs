@@ -5,8 +5,7 @@ using Zenject;
 public class GunView: MonoBehaviour
 {
     public TargetFinderComponent TargetFinderComponent;
-    public Transform AimPointTrn;
-    private Transform CurrentAimPointTargetTrn;
+
     public void Activate()
     {
 
@@ -17,25 +16,8 @@ public class GunView: MonoBehaviour
         transform.right = dir;
     }
 
-    public void Update()
-    {
-        UpdateAimPointPos();
-    }
-    private void UpdateAimPointPos()
-    {
-        if (CurrentAimPointTargetTrn != null)
-        {
-            AimPointTrn.position = CurrentAimPointTargetTrn.position;
-        }
-        else
-        {
-            AimPointTrn.position = transform.right * 5;
-        }
-    }
-    public void ChangeAimPoint(Transform AimPointTargetTrn)
-    {
-        CurrentAimPointTargetTrn = AimPointTargetTrn;
-    }
+    
+   
 
     public void Deactivate()
     {
@@ -49,8 +31,9 @@ public class GunViewService
     [Inject] private IServiceFabric _serviceFabric;
     private BulletShootService _bulletShootService;
     private GunView _gunView;
+    private AimPointView _aimPointView;
     private ReactiveProperty<Vector3> _gunDirection;
-    public void Activate(ReactiveProperty<Vector3> gunDiretion)
+    public void Activate(ReactiveProperty<Vector3> gunDiretion, GameObject AimPointPb)
     {
         _gunDirection = gunDiretion;
 
@@ -58,9 +41,11 @@ public class GunViewService
         _gunView.Activate();
 
         _gunView.TargetFinderComponent.ActivateComponent(typeof(EnemyView));
+
+        _aimPointView = _viewFabric.Init<AimPointView>(AimPointPb, _gunView.transform);
         _gunView.TargetFinderComponent.CurrentTarget.Subscribe(value =>
         {
-            _gunView.ChangeAimPoint(value);
+            _aimPointView.ChangeAimPoint(value);
         });
 
         _gunDirection.Subscribe(value => {

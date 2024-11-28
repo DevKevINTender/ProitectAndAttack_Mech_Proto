@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54523919b7bddaa4e8f3cf1c0587c2df, type: 3}
+  m_Name: ShootingData
+  m_EditorClassIdentifier: 
+  LeftAimPointPb: {fileID: 1822595175335662061, guid: 4357f69f918794a41879e232030960d3, type: 3}
+  RightAimPointPb: {fileID: 1822595175335662061, guid: 832d3c2de9557e742a8452d8fc8d9307, type: 3}
