@@ -11,7 +11,7 @@ public class BulletShootService
     [Inject] private IViewServicePoolService _poolsViewService;
     private IViewServicePool _bulletPoolViewService;
     private TargetFinderComponent _targetFinderComponent;
-    private ReactiveProperty<float> _intervalProperty = new ReactiveProperty<float>(0.1f);
+    private ReactiveProperty<float> _intervalProperty = new ReactiveProperty<float>(1f);
     private CompositeDisposable _disposables = new();
     private Transform _spawPos;
     private Type _bulletFilterType;
