@@ -16,7 +16,7 @@ public class DamageComponent: MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out IHpComponent hpComponent) && collision.GetComponent(_filterType))
+        if(_filterType != null & collision.TryGetComponent(out IHpComponent hpComponent) && collision.GetComponent(_filterType))
         {
             hpComponent.TakeDamage(_damage);
             DamageAction.Invoke();
@@ -25,7 +25,7 @@ public class DamageComponent: MonoBehaviour
 
     public void Deactivate()
     {
-
+        _filterType = null;
     }
 }
 

@@ -8,14 +8,15 @@ public class EnemyView : MonoBehaviour
     public DamageComponent DamageComponent;
     public void Activate(Vector3 spawnPos)
     {
-        transform.position = spawnPos;
         gameObject.SetActive(true);
+        transform.SetParent(null);
+        transform.position = spawnPos;
     }
     public void Deactivate(Transform poolTrn)
     {
-        gameObject.SetActive(false);
         transform.SetParent(poolTrn);
         transform.localPosition = Vector3.zero;
+        gameObject.SetActive(false);
     }
 }
 
@@ -30,7 +31,7 @@ public class EnemyViewService: PoolingViewService
             _enemyView = _viewFabric.Init<EnemyView>(spawnPos);
 
         _enemyView.Activate(spawnPos);
-        _enemyView.MoveComponent.Activate(Vector2.zero, 2);
+        _enemyView.MoveComponent.Activate(Vector2.zero, 1);
         _enemyView.HpComponent.Activate(2);
         _enemyView.HpComponent.DieAction = Deactivate;
         _enemyView.DamageComponent.Activate(1, typeof(UnitView));
@@ -41,8 +42,10 @@ public class EnemyViewService: PoolingViewService
     {
         _enemyView.MoveComponent.Deactivate();
         _enemyView.HpComponent.Deactivate();
+        _enemyView.DamageComponent.Deactivate();
         _enemyView.Deactivate(poolTrn);
         DeactivateToPool();
     }
 }
+
 

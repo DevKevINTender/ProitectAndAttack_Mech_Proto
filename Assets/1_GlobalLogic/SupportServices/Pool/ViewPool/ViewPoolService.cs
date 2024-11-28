@@ -15,7 +15,7 @@ public class ViewPoolService : IViewPoolService
     {
         if(_slotView == null)
         {
-            _slotView = _viewFabric.Init<ViewPoolView>();
+            _slotView = _viewFabric.Init<ViewPoolView>(new Vector3(0,100,0));
         }
         return _slotView.transform;
     }
