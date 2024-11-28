@@ -49,9 +49,11 @@ public class GunViewService
     [Inject] private IServiceFabric _serviceFabric;
     private BulletShootService _bulletShootService;
     private GunView _gunView;
-    private GunDirectionPanel _gunDirectionPanel;
-    public void Activate()
+    private ReactiveProperty<Vector3> _gunDirection;
+    public void Activate(ReactiveProperty<Vector3> gunDiretion)
     {
+        _gunDirection = gunDiretion;
+
         _gunView = _viewFabric.Init<GunView>();
         _gunView.Activate();
 
@@ -61,8 +63,7 @@ public class GunViewService
             _gunView.ChangeAimPoint(value);
         });
 
-        _gunDirectionPanel = _viewFabric.Init<GunDirectionPanel>();
-        _gunDirectionPanel.CurrentDirection.Subscribe(value => {
+        _gunDirection.Subscribe(value => {
             _gunView.ChangeDirection(value);
         });
 
