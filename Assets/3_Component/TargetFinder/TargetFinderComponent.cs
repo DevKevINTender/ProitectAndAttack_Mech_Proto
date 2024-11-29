@@ -55,7 +55,7 @@ public class TargetFinderComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_targetType != null && collision.TryGetComponent(_targetType, out var component))
+        if (collision.TryGetComponent(_targetType, out var component))
         {
             targetPool.Add(collision.transform);
             targetCount.Value = targetPool.Count;
@@ -65,7 +65,7 @@ public class TargetFinderComponent : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (_targetType != null && collision.TryGetComponent(_targetType, out var component))
+        if (collision.TryGetComponent(_targetType, out var component))
         {
             targetPool.Remove(collision.transform);
             targetCount.Value = targetPool.Count;

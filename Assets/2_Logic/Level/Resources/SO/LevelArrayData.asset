@@ -142,4 +142,4 @@ MonoBehaviour:
       - EnemyType: 1
       - EnemyType: 1
     IsComplete: 0
-  CurrentLevelID: 0
+  CurrentLevelID: 1

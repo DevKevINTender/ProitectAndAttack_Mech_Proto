@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using System.Collections;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -6,11 +7,23 @@ using Zenject;
 public class LevelProgressPanel: MonoBehaviour
 {
     public Image CurrentProgressFillImage;
-    public Image TotalProgressFillImage;
-    public void ChangeProgessStatus(float currentValue, float totalValue)
+
+    private float _currentValue;
+    private Coroutine _progressFillProcessCor;
+
+    public void ChangeProgessStatus(float newCurrentValue)
     {
-        TotalProgressFillImage.fillAmount = totalValue;
-        CurrentProgressFillImage.fillAmount = currentValue;
+        if(_progressFillProcessCor != null) StopCoroutine(_progressFillProcessCor);
+        _progressFillProcessCor = StartCoroutine(ProgressFillProcess(newCurrentValue));
+    }
+    private IEnumerator ProgressFillProcess(float newCurrentValue)
+    {
+        while (_currentValue != newCurrentValue)
+        {          
+            _currentValue = Mathf.Lerp(_currentValue, newCurrentValue, 1f * Time.deltaTime);
+            CurrentProgressFillImage.fillAmount = _currentValue;
+            yield return null;
+        }
     }
 }
 public class LevelProgressPanelService
@@ -24,13 +37,12 @@ public class LevelProgressPanelService
     public void Activate()
     {
         _levelProgressPanel = _viewFabric.Init<LevelProgressPanel>();
-        _maxSetID = _levelArrayDataManager.GetCurrentLevel().EnemySetsList.Count;
+        _maxSetID = _levelArrayDataManager.GetCurrentLevel().EnemySetsList.Count - 1;
         _currentLevelDataManager.CurrentSetID.Subscribe(value =>
         {
             float currentId = value;
-            float currentValue = currentId / _maxSetID;
-            float totalValue = (currentId - 1) / _maxSetID;
-            _levelProgressPanel.ChangeProgessStatus(currentValue, totalValue);
+            float currentValue = (currentId -1) / _maxSetID;
+            _levelProgressPanel.ChangeProgessStatus(currentValue);
         }).AddTo(_compositeDisposable);
     }
 
