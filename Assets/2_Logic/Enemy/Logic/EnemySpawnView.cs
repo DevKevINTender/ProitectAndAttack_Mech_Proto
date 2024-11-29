@@ -29,7 +29,9 @@ public class EnemySpawnViewService
         _enemyPoolViewService = _poolsViewService.GetPool<EnemyViewService>();
         _enemySpawnView = _viewFabric.Init<EnemySpawnView>();
         _enemySpawnView.TargetFinderComponent.ActivateComponent(typeof(EnemyView));
-        _enemySpawnView.TargetFinderComponent.targetCount.Subscribe(value =>
+        _enemySpawnView.TargetFinderComponent.targetCount
+            .DelayFrame(1)
+            .Subscribe(value =>
         {
             if (value == 0)
             {

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -13,9 +11,10 @@ public class BulletView: MonoBehaviour
     {
 
     }
-    public void Activate(Vector3 spawnPos)
+    public void Activate(Vector3 spawnPos, Transform targetTrn)
     {
         transform.position = spawnPos;
+        transform.right = transform.position - targetTrn.position;
         gameObject.SetActive(true);
     }
     public void Deactivate(Transform poolTrn)
@@ -45,7 +44,7 @@ public class BulletViewService : PoolingViewService
         if(_bulletView == null)
             _bulletView = _viewFabric.Init<BulletView>();
 
-        _bulletView.Activate(spawnPos);
+        _bulletView.Activate(spawnPos, targetTrn);
         _bulletView.DamageComponent.Activate(1, filterType);
         _bulletView.DamageComponent.DamageAction = Deactivate;
         _bulletView.MoveComponent.Activate(targetTrn.position, 10f);
