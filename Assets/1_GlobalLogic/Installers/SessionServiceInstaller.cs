@@ -9,7 +9,7 @@ public class SessionServiceInstaller : MonoInstaller
 
         Container.Bind<SessionScreenService>().AsSingle();
         Container.Bind<LevelService>().AsSingle();
-        Container.Bind<ShootingService>().AsSingle();
+        Container.Bind<ChunkViewService>().AsSingle();
         Container.Bind<UnitViewService>().AsSingle();
         Container.Bind<FinishPanelService>().AsSingle();
         Container.Bind<LosePanelService>().AsSingle();

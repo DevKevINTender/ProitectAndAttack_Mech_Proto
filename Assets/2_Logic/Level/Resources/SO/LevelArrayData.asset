@@ -18,21 +18,13 @@ MonoBehaviour:
     - EnemySet:
       - EnemyType: 1
       - EnemyType: 0
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
     - EnemySet:
       - EnemyType: 0
       - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
     - EnemySet:
-      - EnemyType: 1
       - EnemyType: 0
+      - EnemyType: 1
+    - EnemySet:
       - EnemyType: 1
       - EnemyType: 0
     IsComplete: 0
@@ -40,52 +32,32 @@ MonoBehaviour:
     EnemySetsList:
     - EnemySet:
       - EnemyType: 1
-      - EnemyType: 0
+      - EnemyType: 1
+    - EnemySet:
       - EnemyType: 1
       - EnemyType: 0
     - EnemySet:
       - EnemyType: 0
       - EnemyType: 1
+    - EnemySet:
+      - EnemyType: 0
+      - EnemyType: 1
+    - EnemySet:
       - EnemyType: 1
       - EnemyType: 0
     - EnemySet:
       - EnemyType: 1
       - EnemyType: 0
-      - EnemyType: 0
-      - EnemyType: 1
     - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 0
       - EnemyType: 1
       - EnemyType: 0
     - EnemySet:
       - EnemyType: 0
       - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 1
-      - EnemyType: 1
     - EnemySet:
       - EnemyType: 1
       - EnemyType: 1
+    - EnemySet:
       - EnemyType: 1
       - EnemyType: 1
     IsComplete: 0
@@ -93,53 +65,33 @@ MonoBehaviour:
     EnemySetsList:
     - EnemySet:
       - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 0
-      - EnemyType: 0
       - EnemyType: 1
     - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 0
       - EnemyType: 1
       - EnemyType: 0
     - EnemySet:
       - EnemyType: 0
       - EnemyType: 1
+    - EnemySet:
       - EnemyType: 0
+      - EnemyType: 1
+    - EnemySet:
+      - EnemyType: 1
+      - EnemyType: 0
+    - EnemySet:
+      - EnemyType: 1
+      - EnemyType: 0
+    - EnemySet:
+      - EnemyType: 1
       - EnemyType: 0
     - EnemySet:
       - EnemyType: 0
       - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 0
-      - EnemyType: 0
-    - EnemySet:
-      - EnemyType: 0
-      - EnemyType: 1
-      - EnemyType: 1
-      - EnemyType: 1
     - EnemySet:
       - EnemyType: 1
       - EnemyType: 1
+    - EnemySet:
       - EnemyType: 1
       - EnemyType: 1
     IsComplete: 0
-  CurrentLevelID: 1
+  CurrentLevelID: 0

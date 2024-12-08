@@ -28,7 +28,7 @@ public class LevelData
 [Serializable]
 public class EnemySetData
 {
-    public EnemyData[] EnemySet = new EnemyData[4];
+    public EnemyData[] EnemySet = new EnemyData[2];
 }
 [Serializable]
 public class EnemyData
