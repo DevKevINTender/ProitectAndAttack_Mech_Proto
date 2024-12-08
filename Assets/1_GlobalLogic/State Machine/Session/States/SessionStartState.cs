@@ -9,15 +9,15 @@ public class SessionStartState : IBaseState
     public void Enter()
     {
         _sessionScreenService.Activate();
-        _levelService.Activate();
-        _shootingService.Activate();
+        //_levelService.Activate();
+        //_shootingService.Activate();
         _unitViewService.Activate();
     }
 
     public void Exit()
     {
-        _levelService.Deactivate();
-        _shootingService.Deactivate();
+        //_levelService.Deactivate();
+        //_shootingService.Deactivate();
         _unitViewService.Deactivate();
     }
 
