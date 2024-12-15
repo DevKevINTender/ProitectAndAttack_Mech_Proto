@@ -10,13 +10,13 @@ public class SessionStartState : IBaseState
     {
         _sessionScreenService.Activate();
         _chunkViewService.Activete();
-        _levelService.Activate();
+        //_levelService.Activate();
         _unitViewService.Activate();
     }
 
     public void Exit()
     {
-        _levelService.Deactivate();
+        //_levelService.Deactivate();
         _unitViewService.Deactivate();
         _chunkViewService.Deactivate();
     }

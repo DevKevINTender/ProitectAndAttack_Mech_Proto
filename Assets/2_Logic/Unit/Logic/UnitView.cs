@@ -57,27 +57,24 @@ public class UnitMoveService
     {
         if (_currentMarker != null)
         {
-            Debug.Log("TEST2");
 
-            if (newDirection == Vector3.right && _currentMarker.E != null) MoveToNewUnitMovePointMarker(_currentMarker.E.transform);
-            if (newDirection == Vector3.left && _currentMarker.W != null) MoveToNewUnitMovePointMarker(_currentMarker.W.transform);
-            if (newDirection == Vector3.up && _currentMarker.N != null) MoveToNewUnitMovePointMarker(_currentMarker.N.transform);
-            if (newDirection == Vector3.down && _currentMarker.S != null) MoveToNewUnitMovePointMarker(_currentMarker.S.transform);
+            if (newDirection == Vector3.right && _currentMarker.RightMarker != null) MoveToNewUnitMovePointMarker(_currentMarker.RightMarker.transform);
+            if (newDirection == Vector3.left && _currentMarker.LeftMarker != null) MoveToNewUnitMovePointMarker(_currentMarker.LeftMarker.transform);
+            if (newDirection == Vector3.up && _currentMarker.UpMarker != null) MoveToNewUnitMovePointMarker(_currentMarker.UpMarker.transform);
+            if (newDirection == Vector3.down && _currentMarker.DownMarker != null) MoveToNewUnitMovePointMarker(_currentMarker.DownMarker.transform);
         }
     }
 
     private void MoveToNewUnitMovePointMarker(Transform pointTargetTrn)
     {
-        Debug.Log("TEST3");
 
         _unitMoveComponent.MoveToPoint(pointTargetTrn);
         _currentMarker = null;
-        //когда получать новый маркер. Прямо сейчас нельзя, потому что смогу пргынуть на слеудющий даже не долеев до этого
     }
 
     private void DetectNewUnitMovePointMarkerAction(UnitMovePointMarker newMarker)
     {
-        Debug.Log("TEST4");
+
 
         _currentMarker = newMarker;
     }

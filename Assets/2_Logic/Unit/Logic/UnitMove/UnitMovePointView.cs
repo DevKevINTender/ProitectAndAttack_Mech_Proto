@@ -12,12 +12,15 @@ public class UnitMovePointView: MonoBehaviour
     public GameObject DeactiveStatusObj;
     public GameObject DirectionObj;
 
+    private UnitMovePointMarker _marker;
+
     public void Activate(UnitMovePointMarker marker)
     {
-        NDirection.SetActive(marker.N != null);
-        SDirection.SetActive(marker.S != null);
-        WDirection.SetActive(marker.W != null);
-        EDirection.SetActive(marker.E != null);
+        _marker = marker;
+        NDirection.SetActive(_marker.UpMarker != null);
+        SDirection.SetActive(_marker.DownMarker != null);
+        WDirection.SetActive(_marker.LeftMarker != null);
+        EDirection.SetActive(_marker.RightMarker != null);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +41,8 @@ public class UnitMovePointView: MonoBehaviour
 
     private void Show()
     {
+
+
         DirectionObj.SetActive(true);
         DeactiveStatusObj.SetActive(true);
         ActiveStatusObj.SetActive(false);
